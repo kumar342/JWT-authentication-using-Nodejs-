@@ -7,8 +7,6 @@ const compress = require("compression");
 const methodOverride = require("method-override");
 const helmet = require("helmet");
 const bearerToken = require("express-bearer-token");
-const cron = require("node-cron");
-const nodemailer = require("nodemailer");
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -54,34 +52,6 @@ connection.once("open", () => {
 connection.on("error", (e) => console.log("error"));
 
 app.use("/", routes);
-
-// e-mail message options
-// let mailOptions = {
-//   from: "hemanth2gundala@gmail.com",
-//   to: "manojobbilisetty@gmail.com",
-//   subject: "For Manoj",
-//   text: " Babaaaaaiiiiiii   sry Babai  ",
-// };
-
-// // e-mail transport configuration
-// let transporter = nodemailer.createTransport({
-//   service: "gmail",
-//   auth: {
-//     user: "hemanth2gundala@gmail.com",
-//     pass: "Hemanth342siva",
-//   },
-// });
-
-// cron.schedule("1 * *  * *", () => {
-//   // Send e-mail
-//   transporter.sendMail(mailOptions, function (error, info) {
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log("Email sent: " + info.response);
-//     }
-//   });
-// });
 
 app.listen(port, () => {
   console.log(`Server is running on port : ${port}`);

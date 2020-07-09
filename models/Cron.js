@@ -3,29 +3,17 @@ const uniqueValidator = require("mongoose-unique-validator");
 
 const UserSchema = new mongoose.Schema(
   {
-    type: {
-      type: number,
-      unique: false,
-      required: true,
-    },
-    message: {
+    from: {
       type: String,
-      unique: false,
-      required: true,
-    },
-    subject: {
-      type: String,
-      required: true,
-      unique: false,
     },
     to: {
       type: String,
-      unique: true,
     },
-    schedule: {
+    subject: {
       type: String,
-      required: true,
-      unique: false,
+    },
+    text: {
+      type: String,
     },
   },
   { versionKey: false },
